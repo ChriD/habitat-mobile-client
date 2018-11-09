@@ -1,4 +1,13 @@
 
+
+/*
+  TODO
+  * automatic reconnecting
+  * event for connected / disconnected
+
+*/
+
+
 /**
  * The Habitat client appliction
  */
