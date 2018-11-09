@@ -1,0 +1,36 @@
+
+.container{
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-right: 1em;
+  /*background-color: lightcoral;*/
+}
+
+.flex{
+  display: flex;
+/*  background-color: lightseagreen;*/
+}
+
+.flex .left{
+  flex: 1;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ /* background-color: lightgray;*/
+}
+
+.flex .right{
+  display: flex;
+  width: 3em;
+ /* background-color: lightgreen;*/
+}
+
+.colorSliderContainer{
+  margin-top: 1em;
+}
+
+
+#settings{
+  margin-bottom: 1em;
+}

@@ -1,0 +1,116 @@
+
+.light {
+  display: flex;
+  border-radius: 0em;
+  border-style: solid;
+  border-width: thin;
+  border-color: darkgray;
+}
+
+.gradientTunableWhite {
+  background: rgba(18,207,232,1);
+  background: -moz-linear-gradient(left, rgba(18,207,232,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(242,250,5,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(18,207,232,1)), color-stop(45%, rgba(255,255,255,1)), color-stop(55%, rgba(255,255,255,1)), color-stop(100%, rgba(242,250,5,1)));
+  background: -webkit-linear-gradient(left, rgba(18,207,232,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(242,250,5,1) 100%);
+  background: -o-linear-gradient(left, rgba(18,207,232,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(242,250,5,1) 100%);
+  background: -ms-linear-gradient(left, rgba(18,207,232,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(242,250,5,1) 100%);
+  background: linear-gradient(to right, rgba(18,207,232,1) 0%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 55%, rgba(242,250,5,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12cfe8', endColorstr='#f2fa05', GradientType=1 );
+}
+
+
+.gradientBrightness {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(0,0,0,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=1 );
+}
+
+
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+
+
+/*-------------------------*/
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid darkgrey;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+
+/**/
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+}
+

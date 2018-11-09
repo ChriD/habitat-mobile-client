@@ -1,0 +1,96 @@
+
+
+<!doctype html>
+
+<html lang="de">
+<head>
+  <title>Habitat Mobile</title>
+
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Mobile client for habitat">
+  <meta name="author" content="ChriD">
+
+
+  <link type="text/css" rel="stylesheet" href="css/uikit.min.css" />
+
+  <script type="text/javascript" src="js/uikit.min.js"></script>
+  <script type="text/javascript" src="js/uikit-icons.min.js"></script>
+
+
+  <script type="module" src="habitat-component.basic.switch.js"></script>
+  <script type="module" src="habitat-component.basic.slider.js"></script>
+  <script type="module" src="habitat-component.thing.light.bar.js"></script>
+
+</head>
+
+<body>
+
+
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="">Licht</a></li>
+                <li class="uk-parent"><a href="">Beschattung</a></li>
+                <li class="uk-parent"><a href="">Szenen</a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+    </nav>
+
+  <!-- -->
+  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
+  <habitat-thing-light-bar habitat-id="ARTNET-KITCHEN-SPOT" label="Spots Küche"></habitat-thing-light-bar>
+  <habitat-thing-light-bar habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" label="Spots Kücheninsel"></habitat-thing-light-bar>
+  <!-- -->
+
+  <!-- -->
+  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
+  <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-SPOT" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+  <!--
+  <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE-BED" label="Indirekt Bett"></habitat-thing-light-bar>
+  <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE" label="Indirekt"></habitat-thing-light-bar>
+  -->
+  <!-- -->
+
+  <!-- -->
+  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
+  <habitat-thing-light-bar habitat-id="ARTNET-CORRIDOR-SPOT" label="Spots Vorhaus"></habitat-thing-light-bar>
+  <!-- -->
+
+
+
+
+  <div id="log">
+
+  </div>
+
+
+
+
+
+  <script>
+
+      logger = document.getElementById("log")
+
+      window.onerror = function (msg, url, line) {
+          console.log("Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line);
+          logger.innerHTML += "Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line
+          return true; // same as preventDefault
+      };
+
+      window.addEventListener('error', function (evt) {
+          console.log("Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno);
+          console.log(evt);
+          logger.innerHTML += "Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno
+          evt.preventDefault();
+      });
+
+
+  </script>
+
+<script type="text/javascript" src="js/habitat-client.js"></script>
+
+</body>
+</html>
