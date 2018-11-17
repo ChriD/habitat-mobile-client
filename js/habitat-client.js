@@ -76,7 +76,9 @@ class HabitatClient
       var elements = document.querySelectorAll('[habitat-id=' + habitatEnvelope.nodeId + ']')
       for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
-        element.habitatState = habitatEnvelope.data;
+        element.habitatState = habitatEnvelope.data
+        if(typeof element.stateUpdatedFromExt === 'function')
+          element.stateUpdatedFromExt()
       }
     }
   }

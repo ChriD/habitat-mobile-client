@@ -37,6 +37,7 @@ import {LitElement, html} from '@polymer/lit-element';
         // RGBTW  ... RGBTW
         this.lightType = "TW"
 
+        // default we do not set any individual color sliders
         this.showIndividualColorSliders = false
 
         // this one is to set the range for the brightness
@@ -88,7 +89,7 @@ import {LitElement, html} from '@polymer/lit-element';
        */
       RGBToHUE(_color)
       {
-        return this.rgbToHsl(_color.red, _color.green, _color.blue)
+        return this.rgbToHsl(_color.red, _color.green, _color.blue)[0]
       }
 
 
@@ -147,6 +148,16 @@ import {LitElement, html} from '@polymer/lit-element';
           color.white     = 127 + (127 - _tuneableWhite)
         }
         return color
+      }
+
+      /**
+       * is called when the satte was updated by external functions
+       */
+      stateUpdatedFromExt()
+      {
+        // force a rerender of the state
+        console.log("State UPDATED!!!")
+        //this.requestUpdate()
       }
 
 
@@ -263,38 +274,40 @@ import {LitElement, html} from '@polymer/lit-element';
               </div>
             </div>
 
+            <div>${this.habitatState.color.red}</div>
+
             <div class="flex" id="settings" style="display: none;">
 
               ${this.lightType == "TW" || this.lightType == "RGBTW" ?  html`
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="tunedWhite" min="0" max="254" gradient="TunableWhite" @change="${this._onSliderValueChanged}" value=${this.colorToTunableWhite(this.habitatState.color)}></habitat-component-slider>
+                  <habitat-component-slider id="tunedWhite" min="0" max="254" gradient="TunableWhite" @change="${this._onSliderValueChanged}" .value=${this.colorToTunableWhite(this.habitatState.color)}></habitat-component-slider>
                 </div>` : '' }
 
               ${this.lightType == "RGBW" ?  html`
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="white" min="0" max="254" gradient="White" @change="${this._onSliderValueChanged}" value=${this.habitatState.color.white}></habitat-component-slider>
+                  <habitat-component-slider id="white" min="0" max="254" gradient="White" @change="${this._onSliderValueChanged}" .value=${this.habitatState.color.white}></habitat-component-slider>
                 </div>` : '' }
 
               ${this.lightType == "RGB" || this.lightType == "RGBW" ?  html`
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="hue" gradient="HUE" min="0" max="359" @change="${this._onSliderValueChanged}"  value=${this.RGBToHUE(this.habitatState.color)}></habitat-component-slider>
+                  <habitat-component-slider id="hue" gradient="HUE" min="0" max="359" @change="${this._onSliderValueChanged}"  .value=${this.RGBToHUE(this.habitatState.color)}></habitat-component-slider>
                 </div>` : '' }
 
 
               ${(this.lightType == "RGB" || this.lightType == "RGBW" || this.lightType == "RGBTW") && this.showIndividualColorSliders ?  html`
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="red" min="0" max="254" gradient="Red" @change="${this._onSliderValueChanged}" value=${this.habitatState.color.red}></habitat-component-slider>
+                  <habitat-component-slider id="red" min="0" max="254" gradient="Red" @change="${this._onSliderValueChanged}" .value=${this.habitatState.color.red}></habitat-component-slider>
                 </div>
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="green" min="0" max="254" gradient="Green" @change="${this._onSliderValueChanged}" value=${this.habitatState.color.green}></habitat-component-slider>
+                  <habitat-component-slider id="green" min="0" max="254" gradient="Green" @change="${this._onSliderValueChanged}" .value=${this.habitatState.color.green}></habitat-component-slider>
                 </div>
                 <div class="colorSliderContainer">
-                  <habitat-component-slider id="blue" min="0" max="254" gradient="Blue" @change="${this._onSliderValueChanged}" value=${this.habitatState.color.blue}></habitat-component-slider>
+                  <habitat-component-slider id="blue" min="0" max="254" gradient="Blue" @change="${this._onSliderValueChanged}" .value=${this.habitatState.color.blue}></habitat-component-slider>
                 </div>` : '' }
 
 
               <div class="colorSliderContainer">
-                <habitat-component-slider id="brightness" min="0" max=${this.brightnessRange} gradient="Brightness" @change="${this._onSliderValueChanged}" value=${this.habitatState.brightness * this.brightnessRange}></habitat-component-slider>
+                <habitat-component-slider id="brightness" min="0" .max=${this.brightnessRange} gradient="Brightness" @change="${this._onSliderValueChanged}" .value=${this.habitatState.brightness * this.brightnessRange}></habitat-component-slider>
               </div>
 
             </div>
