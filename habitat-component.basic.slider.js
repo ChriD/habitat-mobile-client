@@ -4,6 +4,8 @@
 
 // http://johndyer.name/lab/colorpicker/
 
+// https://codepen.io/anon/pen/OajOOd
+
 
 import {LitElement, html} from '@polymer/lit-element';
 

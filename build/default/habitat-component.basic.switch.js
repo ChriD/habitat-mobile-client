@@ -16,6 +16,9 @@ class HabitatComponent_Basic_Switch extends LitElement {
 
   _onCheckedChanged(_e) {
     this.checked = _e.currentTarget.checked;
+    this.dispatchEvent(new CustomEvent('change', {
+      detail: this.checked
+    }));
   } // https://materialdesignicons.com/
   // https://jasonette.com/
 

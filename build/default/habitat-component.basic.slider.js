@@ -9,6 +9,12 @@ class HabitatComponent_Basic_Slider extends LitElement {
       value: {
         type: Number
       },
+      min: {
+        type: Number
+      },
+      max: {
+        type: Number
+      },
       gradient: {
         type: String
       }
@@ -19,6 +25,8 @@ class HabitatComponent_Basic_Slider extends LitElement {
     super();
     this.value = 0;
     this.gradient = "Brightness";
+    this.min = 0;
+    this.max = 254;
   } // https://github.com/Polymer/lit-html/issues/145
 
 
@@ -33,7 +41,7 @@ class HabitatComponent_Basic_Slider extends LitElement {
     return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.slider.css"/>
           <div class="light ${"gradient" + this.gradient}">
-            <input name="light" type="range" min="0" max="254" @change="${this._onRangeChanged}" value=${this.value}>
+            <input name="light" type="range" min=${this.min} max=${this.max} @change="${this._onRangeChanged}" value=${this.value}>
           </div>
 
         `;

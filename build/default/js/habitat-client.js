@@ -1,3 +1,10 @@
+/*
+  TODO
+  * automatic reconnecting
+  * event for connected / disconnected
+
+*/
+
 /**
  * The Habitat client appliction
  */
@@ -45,11 +52,11 @@ class HabitatClient {
   }
 
   messageReceived(_habitatEnvelopeData) {
-    var habitatEnvelope = JSON.parse(_habitatEnvelopeData); // skip message if it was sent by own
+    var habitatEnvelope = JSON.parse(_habitatEnvelopeData);
 
-    if(habitatEnvelope.type.toUpperCase() == "NODESTATE")
-    {
+    if (habitatEnvelope.type.toUpperCase() == "NODESTATE") {
       var elements = document.querySelectorAll('[habitat-id=' + habitatEnvelope.nodeId + ']');
+
       for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
         element.habitatState = habitatEnvelope.data;
@@ -58,15 +65,16 @@ class HabitatClient {
   }
 
   updateHabitatNodeStateForElement(_element) {
-    var data = {}; // pack the current state into a data envelope and send it to all clients
+    var envelope = {}; // pack the current state into a data envelope and send it to all clients
 
-    data.protocol = "HABITAT_ENVELOPE";
-    data.version = 1;
-    data.sender = "HABITAT MOBILE";
-    data.senderUnique = this.clientUnique;
-    data.nodeId = _element.getAttribute('habitat-id');
-    data.nodeState = _element.habitatState;
-    if (this.connection) this.connection.send(JSON.stringify(data));
+    envelope.protocol = "HABITAT_ENVELOPE";
+    envelope.version = 1;
+    envelope.sender = "HABITAT MOBILE";
+    envelope.senderUnique = this.clientUnique;
+    envelope.nodeId = _element.getAttribute('habitat-id');
+    envelope.type = "NODESTATE";
+    envelope.data = _element.habitatState;
+    if (this.connection) this.connection.send(JSON.stringify(envelope));
   }
 
 } // ---------------------
