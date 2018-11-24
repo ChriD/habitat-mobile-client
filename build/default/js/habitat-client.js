@@ -60,6 +60,7 @@ class HabitatClient {
       for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
         element.habitatState = habitatEnvelope.data;
+        if (typeof element.stateUpdatedFromExt === 'function') element.stateUpdatedFromExt();
       }
     }
   }

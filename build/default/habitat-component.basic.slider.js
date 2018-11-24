@@ -1,6 +1,7 @@
 // http://jscolor.com/
 //https://www.cssscript.com/demo/minimal-hsla-color-picker-pure-javascript/
 // http://johndyer.name/lab/colorpicker/
+// https://codepen.io/anon/pen/OajOOd
 import { LitElement, html } from "./node_modules/@polymer/lit-element/lit-element.js";
 
 class HabitatComponent_Basic_Slider extends LitElement {
@@ -40,10 +41,9 @@ class HabitatComponent_Basic_Slider extends LitElement {
   render() {
     return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.slider.css"/>
-          <div class="light ${"gradient" + this.gradient}">
-            <input name="light" type="range" min=${this.min} max=${this.max} @change="${this._onRangeChanged}" value=${this.value}>
+          <div class="back ${"gradient" + this.gradient}">
+            <input name="" type="range" .min=${this.min} .max=${this.max} @change="${this._onRangeChanged}" .value=${this.value}>
           </div>
-
         `;
   }
 

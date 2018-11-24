@@ -28,8 +28,7 @@ import {LitElement, html} from '@polymer/lit-element';
                                     'green'     : 127,
                                     'blue'      : 127
                                   }
-        // the element has a type which light it is for now there is only TW but later
-        // there should be L, TW, RGB, RGBW
+        // the element has a type which light it is
         // ONE    ... Light
         // TW     ... Tunable White
         // RGB    ... RGB
@@ -319,7 +318,6 @@ import {LitElement, html} from '@polymer/lit-element';
               </div>
             </div>
 
-            <div>${this.habitatState.color.red}</div>
 
             <div class="flex" id="settings" style="display: none;">
 
@@ -339,7 +337,7 @@ import {LitElement, html} from '@polymer/lit-element';
                 </div>` : '' }
 
 
-              ${(this.lightType == "RGB" || this.lightType == "RGBW" || this.lightType == "RGBTW") && this.showIndividualColorSliders ?  html`
+              ${(this.lightType == "RGB" || this.lightType == "RGBW" || this.lightType == "RGBTW") && this.showIndividualColorSliders == true ?  html`
                 <div class="colorSliderContainer">
                   <habitat-component-slider id="red" min="0" max="254" gradient="Red" @change="${this._onSliderValueChanged}" .value=${this.habitatState.color.red}></habitat-component-slider>
                 </div>

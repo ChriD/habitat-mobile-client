@@ -43,7 +43,6 @@ import {LitElement, html} from '@polymer/lit-element';
           <div class="back ${"gradient" + this.gradient}">
             <input name="" type="range" .min=${this.min} .max=${this.max} @change="${this._onRangeChanged}" .value=${this.value}>
           </div>
-          <div>${this.value}</div>
         `
       }
 
