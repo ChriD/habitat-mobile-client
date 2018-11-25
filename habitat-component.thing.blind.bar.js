@@ -29,28 +29,6 @@ import {LitElement, html} from '@polymer/lit-element';
 
 
       /**
-       * is called whenever a switch value is changed by the user
-       * @param {Event} _e the checked event
-       */
-      _onSwitchValueChanged(_e)
-      {
-        switch(_e.currentTarget.id.toUpperCase())
-        {
-          // the onOff switch does turn on and off the lamp
-          case "ONOFF":
-            if(this.habitatState.isOn != _e.currentTarget.checked)
-              this.habitatState.isOn = _e.currentTarget.checked
-            break
-        }
-
-        // a change of the switch control should update the state in the habitat app, for that we call
-        // the updateHabitatNodeStateForElement method on the habitat client which will handle this
-        // stuff for us
-        habitatClient.updateHabitatNodeStateForElement(this)
-      }
-
-
-      /**
        * is called when the toggle settings button is clicked
        * @param {Event} _e the click event
        */
@@ -72,8 +50,8 @@ import {LitElement, html} from '@polymer/lit-element';
       {
         switch(_e.currentTarget.dataset.context.toUpperCase())
         {
-          case "blindPosition":
-            this.habitatState.blindPosition = parseInt(_e.currentTarget.dataset.value)
+          case "BLINDPOSITION":
+            this.habitatState.blindPosition = parseFloat(_e.currentTarget.dataset.value)
             break
         }
 
