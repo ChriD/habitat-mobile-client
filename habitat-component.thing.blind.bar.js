@@ -20,6 +20,7 @@ import {LitElement, html} from '@polymer/lit-element';
         // there is no state given from external
         this.habitatState = {}
         this.habitatState.blindPosition = 0
+        this.habitatState.blindDegree = 0
 
         // the element has a type which blind it is
         // ROLLERBLIND    ... Roller Blind
@@ -43,7 +44,7 @@ import {LitElement, html} from '@polymer/lit-element';
 
 
       /**
-       * is called when the toggle settings button is clicked
+       * is called whenever a button is clicked on this element
        * @param {Event} _e the click event
        */
       _onButtonClick(_e)
@@ -52,27 +53,25 @@ import {LitElement, html} from '@polymer/lit-element';
         {
           case "BLINDPOSITION":
             this.habitatState.blindPosition = parseFloat(_e.currentTarget.dataset.value)
+            habitatClient.updateHabitatNodeStateForElement(this, { blindPosition : this.habitatState.blindPosition } )
+            break
+          case "BLINDDEGREE":
+            this.habitatState.blindDegree   = parseFloat(_e.currentTarget.dataset.value)
+            habitatClient.updateHabitatNodeStateForElement(this, { blindDegree : this.habitatState.blindDegree } )
             break
         }
-
-        // we have to update the state on the habitat app
-        habitatClient.updateHabitatNodeStateForElement(this)
       }
 
 
       render() {
         return html`
+          <link type="text/css" rel="stylesheet" href="habitat-component.thing.bar.css"/>
           <link type="text/css" rel="stylesheet" href="habitat-component.thing.blind.bar.css"/>
 
           <div class="container">
             <div class="flex">
               <div class="left">
-                <button @click="${this._onButtonClick}" data-context="blindPosition" data-value="0">0%</button>
-                <button @click="${this._onButtonClick}" data-context="blindPosition" data-value="25">25%</button>
-                <button @click="${this._onButtonClick}" data-context="blindPosition" data-value="50">50%</button>
-                <button @click="${this._onButtonClick}" data-context="blindPosition" data-value="75">75%</button>
-                <button @click="${this._onButtonClick}" data-context="blindPosition" data-value="100">100%</button>
-                ${this.habitatState.blindPosition}
+                ${this.habitatState.blindPosition}  ${this.habitatState.blindDegree}
                 <label for="switch">${this.label}</label>
               </div>
               <div class="right" @click="${this._onToggleSettings}">
@@ -82,6 +81,24 @@ import {LitElement, html} from '@polymer/lit-element';
 
 
             <div class="flex" id="settings" style="display: none;">
+              <div class="flex buttons">
+                <div class="column info">Höhe</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="0">0%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="25">25%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="50">50%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="75">75%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="100">100%</div>
+                <div class="column button">-</div>
+              </div>
+              <div class="flex buttons">
+                <div class="column info">°</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="0">0%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="25">25%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="50">50%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="75">75%</div>
+                <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="100">100%</div>
+                <div class="column button">-</div>
+              </div>
             </div>
 
           </div>

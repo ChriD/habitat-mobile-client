@@ -1,0 +1,29 @@
+
+.column{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.buttons{
+  margin-top: 1em;
+  line-height: 2em;
+}
+
+
+.buttons .button{
+  border: 1px solid lightgray;
+  border-left: 0px;
+}
+
+.buttons .button:hover{
+  background-color: aquamarine;
+  cursor: pointer;
+}
+
+.buttons .info{
+  background: lightgray;
+}
+

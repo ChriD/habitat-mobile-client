@@ -91,7 +91,7 @@ class HabitatClient
   }
 
 
-  updateHabitatNodeStateForElement(_element)
+  updateHabitatNodeStateForElement(_element, _state = null)
   {
     var envelope = {}
 
@@ -102,14 +102,14 @@ class HabitatClient
     envelope.senderUnique = this.clientUnique
     envelope.nodeId       = _element.getAttribute('habitat-id')
     envelope.type         = "NODESTATE"
-    envelope.data         = _element.habitatState
+    if(_state)
+      envelope.data       =  JSON.parse(JSON.stringify(_state))
+    else
+      envelope.data       =  JSON.parse(JSON.stringify(_element.habitatState))
 
     if(this.connection)
       this.connection.send(JSON.stringify(envelope))
   }
-
-
-
 }
 
 // ---------------------

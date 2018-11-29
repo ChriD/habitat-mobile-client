@@ -305,6 +305,7 @@ import {LitElement, html} from '@polymer/lit-element';
 
       render() {
         return html`
+          <link type="text/css" rel="stylesheet" href="habitat-component.thing.bar.css"/>
           <link type="text/css" rel="stylesheet" href="habitat-component.thing.light.bar.css"/>
 
           <div class="container">
