@@ -7,51 +7,73 @@
   <meta name="description" content="Mobile client for habitat">
   <meta name="author" content="ChriD">
 
+  <link type="text/css" rel="stylesheet" href="css/app.css">
   <link type="text/css" rel="stylesheet" href="css/uikit.min.css">
+  <link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+  <!--  https://github.com/nolimits4web/swiper/
+        https://idangero.us/swiper/api/
+  -->
 
   <script type="text/javascript" src="js/uikit.min.js"></script>
   <script type="text/javascript" src="js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="js/swiper.js"></script>
 
+  <script type="module" src="habitat-component.basic.button.js"></script>
   <script type="module" src="habitat-component.basic.switch.js"></script>
   <script type="module" src="habitat-component.basic.slider.js"></script>
   <script type="module" src="habitat-component.thing.light.bar.js"></script>
+  <script type="module" src="habitat-component.thing.blind.bar.js"></script>
 
 </head>
 
 <body>
 
+    <!-- Slider main container -->
+    <div class="pageHeader"></div>
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
 
-    <nav class="uk-navbar-container" uk-navbar="">
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="">Licht</a></li>
-                <li class="uk-parent"><a href="">Beschattung</a></li>
-                <li class="uk-parent"><a href="">Szenen</a></li>
-                <li><a href=""></a></li>
-            </ul>
+<!-- class="swiper-no-swiping" -->
+
+            <!-- Slides -->
+            <div class="swiper-slide">
+
+                <div class="page">
+                    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
+                    <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-KITCHEN-SPOT" label="Spots Küche"></habitat-thing-light-bar>
+                    <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                    <habitat-thing-light-bar lighttype="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" label="Indirekt Küche"></habitat-thing-light-bar>
+
+                    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
+                    <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-SLEEP-SPOT" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+
+                    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
+                    <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-CORRIDOR-SPOT" label="Spots Vorhaus"></habitat-thing-light-bar>
+                </div>
+
+            </div>
+
+            <div class="swiper-slide">
+
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Beschattung TEST</span></h1>
+                <habitat-thing-blind-bar blindtype="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+                <habitat-thing-blind-bar blindtype="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+                <habitat-thing-blind-bar blindtype="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+                <!-- ??? gruppensteuerung ??? -->
+                <!-- aber was ist mit rückmeldungen von anderen clients (Einzeländrung?) -->
+                <habitat-thing-blind-bar blindtype="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-ALL" habitat-group="KNX-KITCHEN-BLIND-A KNX-KITCHEN-BLIND-B" label="Küchen"></habitat-thing-blind-bar>
+
+            </div>
+
+            <div class="swiper-slide">
+                Page 3
+            </div>
+            ...
         </div>
-    </nav>
-
-  <!-- -->
-  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
-  <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-KITCHEN-SPOT" label="Spots Küche"></habitat-thing-light-bar>
-  <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" label="Spots Kücheninsel"></habitat-thing-light-bar>
-  <habitat-thing-light-bar lighttype="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" label="Indirekt Küche"></habitat-thing-light-bar>
-  <!-- -->
-
-  <!-- -->
-  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
-  <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-SLEEP-SPOT" label="Spots Schlafzimmer"></habitat-thing-light-bar>
-  <!--
-  <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE-BED" label="Indirekt Bett"></habitat-thing-light-bar>
-  <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE" label="Indirekt"></habitat-thing-light-bar>
-  -->
-  <!-- -->
-
-  <!-- -->
-  <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
-  <habitat-thing-light-bar lighttype="TW" habitat-id="ARTNET-CORRIDOR-SPOT" label="Spots Vorhaus"></habitat-thing-light-bar>
-  <!-- -->
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 
 
 
@@ -77,6 +99,17 @@ window.addEventListener('error', function (evt) {
   console.log(evt);
   logger.innerHTML += "Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno;
   evt.preventDefault();
+});</script>
+
+  <!-- Initialize Swiper -->
+  <script>var swiper = new Swiper('.swiper-container', {
+  pagination: {
+    el: '.swiper-pagination'
+    /*,
+    preventClicks : false,
+    preventClicksPropagation : false*/
+
+  }
 });</script>
 
 <script type="text/javascript" src="js/habitat-client.js"></script>

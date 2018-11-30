@@ -59,13 +59,17 @@ class HabitatClient {
 
       for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
-        element.habitatState = habitatEnvelope.data;
-        if (typeof element.stateUpdatedFromExt === 'function') element.stateUpdatedFromExt();
+
+        if (habitatEnvelope.data) {
+          element.habitatState = habitatEnvelope.data;
+          if (typeof element.stateUpdatedFromExt === 'function') element.stateUpdatedFromExt();
+        } else {// TODO: Log Error: No state retrieved
+        }
       }
     }
   }
 
-  updateHabitatNodeStateForElement(_element) {
+  updateHabitatNodeStateForElement(_element, _state = null) {
     var envelope = {}; // pack the current state into a data envelope and send it to all clients
 
     envelope.protocol = "HABITAT_ENVELOPE";
@@ -74,7 +78,7 @@ class HabitatClient {
     envelope.senderUnique = this.clientUnique;
     envelope.nodeId = _element.getAttribute('habitat-id');
     envelope.type = "NODESTATE";
-    envelope.data = _element.habitatState;
+    if (_state) envelope.data = JSON.parse(JSON.stringify(_state));else envelope.data = JSON.parse(JSON.stringify(_element.habitatState));
     if (this.connection) this.connection.send(JSON.stringify(envelope));
   }
 

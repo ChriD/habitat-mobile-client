@@ -17,7 +17,7 @@ import {LitElement, html} from '@polymer/lit-element';
       _onCheckedChanged(_e)
       {
         this.checked = _e.currentTarget.checked
-        this.dispatchEvent(new CustomEvent('change', { detail: this.checked }));
+        this.dispatchEvent(new CustomEvent('change', { detail: this.checked }))
       }
 
 

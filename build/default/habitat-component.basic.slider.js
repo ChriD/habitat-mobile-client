@@ -38,11 +38,27 @@ class HabitatComponent_Basic_Slider extends LitElement {
     }));
   }
 
+  _onButtonClick(_e) {
+    // change value if button was clicked, we start
+    if (parseInt(_e.currentTarget.dataset.direction) > 0) this.value += 5;else this.value -= 5;
+    this.dispatchEvent(new CustomEvent('change', {
+      detail: this.value
+    }));
+  }
+
+  _stopPropagation(_e) {
+    _e.stopPropagation();
+  }
+
   render() {
     return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.slider.css"/>
-          <div class="back ${"gradient" + this.gradient}">
-            <input name="" type="range" .min=${this.min} .max=${this.max} @change="${this._onRangeChanged}" .value=${this.value}>
+          <div class="slider">
+            <habitat-component-button class="button left" data-direction="-1" @click="${this._onButtonClick}">-</habitat-component-button>
+            <div class="back ${"gradient" + this.gradient}">
+              <input name="" type="range" .min=${this.min} .max=${this.max} @pointerdown="${this._stopPropagation}" @pointerup="${this._stopPropagation}" @click="${this._stopPropagation}" @touchstart="${this._stopPropagation}" @mousedown="${this._stopPropagation}" @mousemove="${this._stopPropagation}" @touchmove="${this._stopPropagation}" @change="${this._onRangeChanged}" .value=${this.value}>
+            </div>
+            <habitat-component-button class="button right" data-direction="1" @click="${this._onButtonClick}">+</habitat-component-button>
           </div>
         `;
   }

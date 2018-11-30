@@ -30,8 +30,7 @@ class HabitatComponent_Light_Bar extends LitElement {
       'warmwhite': 127,
       'red': 127,
       'green': 127,
-      'blue': 127 // the element has a type which light it is for now there is only TW but later
-      // there should be L, TW, RGB, RGBW
+      'blue': 127 // the element has a type which light it is
       // ONE    ... Light
       // TW     ... Tunable White
       // RGB    ... RGB
@@ -307,6 +306,7 @@ class HabitatComponent_Light_Bar extends LitElement {
 
   render() {
     return html`
+          <link type="text/css" rel="stylesheet" href="habitat-component.thing.bar.css"/>
           <link type="text/css" rel="stylesheet" href="habitat-component.thing.light.bar.css"/>
 
           <div class="container">

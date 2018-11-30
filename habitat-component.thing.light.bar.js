@@ -287,11 +287,11 @@ import {LitElement, html} from '@polymer/lit-element';
        */
       _onToggleSettings(_e)
       {
-        var element = this.shadowRoot.getElementById("settings");
+        var element = this.shadowRoot.getElementById("settings")
         if(element.style.display == 'block')
-          element.style.display = 'none';
+          element.style.display = 'none'
         else
-          element.style.display = 'block';
+          element.style.display = 'block'
       }
 
 

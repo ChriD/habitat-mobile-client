@@ -7,6 +7,28 @@
   border-color: darkgray;
 }
 
+.slider {
+  display: flex;
+}
+
+
+.slider .button{
+  min-width: 3em;
+  min-height: 2em;
+}
+
+.slider .button.left{
+  margin-right: 0.5em;
+}
+
+.slider .button.right{
+  margin-left: 0.5em;
+}
+
+.slider .back {
+  flex: 1;
+}
+
 
 .gradientWhite {
   background: rgba(255,255,255,1);
@@ -89,9 +111,6 @@
 
 
 
-
-
-
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
@@ -117,14 +136,13 @@ input[type=range]::-ms-track {
 }
 
 
-
 /*-------------------------*/
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid darkgrey;
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.9em;
+  width: 1.9em;
   border-radius: 0px;
   background: #ffffff;
   cursor: pointer;
