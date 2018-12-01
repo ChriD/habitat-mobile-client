@@ -40,7 +40,14 @@ class HabitatComponent_Basic_Slider extends LitElement {
 
   _onButtonClick(_e) {
     // change value if button was clicked, we start
-    if (parseInt(_e.currentTarget.dataset.direction) > 0) this.value += 5;else this.value -= 5;
+    if (parseInt(_e.currentTarget.dataset.direction) > 0) {
+      this.value += 5;
+      this.value > this.max ? this.value = this.max : this.value;
+    } else {
+      this.value -= 5;
+      this.value < this.min ? this.value = this.min : this.value;
+    }
+
     this.dispatchEvent(new CustomEvent('change', {
       detail: this.value
     }));

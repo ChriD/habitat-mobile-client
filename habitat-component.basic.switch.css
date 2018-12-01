@@ -37,7 +37,7 @@
 }
 
 .toggle-check-input:checked ~ .toggle-check-text {
-  background: #8ad869;
+  background: rgb(0, 235, 193);
   padding-left: 0.5em;
   padding-right: 2em;
 }

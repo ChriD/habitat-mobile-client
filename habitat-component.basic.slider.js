@@ -32,7 +32,7 @@ import {LitElement, html} from '@polymer/lit-element';
       // https://github.com/Polymer/lit-html/issues/145
       _onRangeChanged(_e)
       {
-        this.value = _e.currentTarget.value
+        this.value = parseInt(_e.currentTarget.value)
         this.dispatchEvent(new CustomEvent('change', { detail: this.value }));
       }
 
@@ -41,9 +41,15 @@ import {LitElement, html} from '@polymer/lit-element';
         // change value if button was clicked, we start
 
         if(parseInt(_e.currentTarget.dataset.direction) > 0)
-          this.value += 5
+        {
+          this.value += 1
+          this.value > this.max ? this.value = this.max : this.value
+        }
         else
-          this.value -= 5
+        {
+          this.value -= 1
+          this.value < this.min ? this.value = this.min : this.value
+        }
         this.dispatchEvent(new CustomEvent('change', { detail: this.value }));
       }
 

@@ -61,8 +61,11 @@ class HabitatClient {
         var element = elements[i];
 
         if (habitatEnvelope.data) {
-          element.habitatState = habitatEnvelope.data;
-          if (typeof element.stateUpdatedFromExt === 'function') element.stateUpdatedFromExt();
+          // check if state was set by the element itself, then we do not have to update the state
+          if (!habitatEnvelope.originator || habitatEnvelope.originator.clientUnique != this.clientUnique || habitatEnvelope.originator.objectUnique != element.getAttribute('habitat-unique')) {
+            element.habitatState = habitatEnvelope.data;
+            if (typeof element.stateUpdatedFromExt === 'function') element.stateUpdatedFromExt();
+          }
         } else {// TODO: Log Error: No state retrieved
         }
       }
@@ -77,6 +80,10 @@ class HabitatClient {
     envelope.sender = "HABITAT MOBILE";
     envelope.senderUnique = this.clientUnique;
     envelope.nodeId = _element.getAttribute('habitat-id');
+    envelope.originator = {
+      objectUnique: _element.getAttribute('habitat-unique'),
+      clientUnique: this.clientUnique
+    };
     envelope.type = "NODESTATE";
     if (_state) envelope.data = JSON.parse(JSON.stringify(_state));else envelope.data = JSON.parse(JSON.stringify(_element.habitatState));
     if (this.connection) this.connection.send(JSON.stringify(envelope));
