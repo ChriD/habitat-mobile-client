@@ -1,0 +1,84 @@
+
+<!--
+Phonon / Onsen ui / framework 7
+-->
+
+<!doctype html>
+
+<html lang="de">
+<head>
+  <title>Habitat Mobile</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Mobile client for habitat">
+  <meta name="author" content="ChriD">
+
+  <script type="module" src="habitat-component.basic.button.js"></script>
+  <script type="module" src="habitat-component.basic.switch.js"></script>
+  <script type="module" src="habitat-component.basic.slider.js"></script>
+  <script type="module" src="habitat-component.thing.light.bar.js"></script>
+  <script type="module" src="habitat-component.thing.blind.bar.js"></script>
+
+</head>
+
+<body>
+
+
+    <habitat-component-button longPressClickInterval=15 id="button">TEST</habitat-component-button>
+    <habitat-component-switch id="switch">TEST</habitat-component-switch>
+    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="L0" label="Spots Küche"></habitat-thing-light-bar>
+
+    <div id="error-log"></div>
+
+    <script>
+
+    var element = document.getElementById("button");
+    element.addEventListener("clicked", function(){
+        console.log("CLICKED")
+    })
+
+    var element = document.getElementById("switch");
+    element.addEventListener("changed", function(){
+        console.log("CLICKED")
+    })
+
+
+    console.log = (function (old_function, div_log) {
+    return function (text) {
+        old_function(text);
+        div_log.innerHTML  += text + "<br>";
+    };
+    } (console.log.bind(console), document.getElementById("error-log")));
+    </script>
+
+<!--
+    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
+    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="L0" label="Spots Küche"></habitat-thing-light-bar>
+    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="L1" label="Spots Kücheninsel"></habitat-thing-light-bar>
+    <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="L2" label="Indirekt Küche"></habitat-thing-light-bar>
+
+    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
+    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="L3" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+
+    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
+    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="L4" label="Spots Vorhaus"></habitat-thing-light-bar>
+
+
+    <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Beschattung TEST</span></h1>
+    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" habitat-unique="B0" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" habitat-unique="B1" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" habitat-unique="B2" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+
+    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-ALL" habitat-group="KNX-KITCHEN-BLIND-A KNX-KITCHEN-BLIND-B" label="Küchen"></habitat-thing-blind-bar>
+-->
+
+
+
+<!--<script type="text/javascript" src="js/phonon.js"></script>-->
+<!--<script type="text/javascript" src="js/habitat-client.js"></script>-->
+<!--<script type="text/javascript" src="js/app.js"></script>-->
+
+
+</body>
+</html>

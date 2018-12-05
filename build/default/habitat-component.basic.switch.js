@@ -15,21 +15,38 @@ class HabitatComponent_Basic_Switch extends LitElement {
   }
 
   _onCheckedChanged(_e) {
+    console.log(_e.type);
     this.checked = _e.currentTarget.checked;
-    this.dispatchEvent(new CustomEvent('change', {
+    this.dispatchEvent(new CustomEvent('changed', {
+      detail: this.checked
+    })); //_e.preventDefault()
+  }
+
+  _onCLick(_e) {
+    console.log(_e.type); //_e.stopPropagation()
+  }
+
+  _onT(_e) {
+    console.log(_e.type);
+    this.checked = !this.checked;
+    var element = this.shadowRoot.getElementById("switchCB");
+    element.checked = this.checked;
+    this.dispatchEvent(new CustomEvent('changed', {
       detail: this.checked
     }));
   } // https://materialdesignicons.com/
   // https://jasonette.com/
+  // uses BAD workaround!!!!!
 
 
   render() {
     return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.switch.css"/>
-          <label class="toggle-check">
-            <input type="checkbox" class="toggle-check-input" @click="${this._onCheckedChanged}" .checked=${this.checked}>
+          <label class="toggle-check" @touchstart="${this._onT}">
+            <input id="switchCB" type="checkbox" class="toggle-check-input" .checked=${this.checked}>
             <span class="toggle-check-text"></span>
           </label>
+
         `;
   }
 

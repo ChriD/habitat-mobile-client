@@ -1,0 +1,26 @@
+
+:root{
+  --main-color1: rgb(0, 235, 193);
+  --main-color2: rgb(51, 51, 51);
+}
+
+body{
+  font-size: 14px;
+}
+
+/* F7 styling*/
+.md .navbar {
+  background: var(--main-color2);
+}
+
+.md .toolbar {
+  background: var(--main-color1);
+}
+
+
+.md .tabbar a.link,
+.md .tabbar-labels a.link,
+.md .tabbar a.tab-link,
+.md .tabbar-labels a.tab-link {
+  font-size: 14px;
+}

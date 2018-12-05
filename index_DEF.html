@@ -1,0 +1,216 @@
+
+<!--
+Phonon / Onsen ui / framework 7
+-->
+
+<!doctype html>
+
+<html lang="de">
+<head>
+  <title>Habitat Mobile</title>
+
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Mobile client for habitat">
+  <meta name="author" content="ChriD">
+
+  <link type="text/css" rel="stylesheet" href="css/app.css" />
+
+  <link type="text/css" rel="stylesheet" href="css/uikit.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+
+  <!--  https://github.com/nolimits4web/swiper/
+        https://idangero.us/swiper/api/
+  -->
+
+  <!--<link type="text/css" rel="stylesheet" href="css/phonon.css" />-->
+
+<!--script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>-->
+
+
+  <script type="text/javascript" src="js/uikit.min.js"></script>
+  <script type="text/javascript" src="js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="js/swiper.js"></script>
+
+
+  <script type="module" src="habitat-component.basic.button.js"></script>
+  <script type="module" src="habitat-component.basic.switch.js"></script>
+  <script type="module" src="habitat-component.basic.slider.js"></script>
+  <script type="module" src="habitat-component.thing.light.bar.js"></script>
+  <script type="module" src="habitat-component.thing.blind.bar.js"></script>
+
+</head>
+
+<body>
+
+
+    <!--
+        <home data-page="true">
+                <header class="header-bar">
+                    <div class="center">
+                    <h1 class="title">Tabs <span class="tab-number">1</span></h1>
+                    </div>
+                </header>
+                <nav class="tabs header-tabs">
+                    <div class="tab-items">
+                        <a class="tab-item">Beleuchtung</a>
+                        <a class="tab-item">Beschattung</a>
+                        <a class="tab-item"><i class="icon icon-edit"></i></a>
+                        <a class="tab-item icon-text" ><i class="icon icon-settings"></i>Tab name</a>
+                    </div>
+                    <div class="tab-indicator"></div>
+                </nav>
+                <div class="content" data-tab-contents="true" data-disable-swipe="false" data-tab-default="1" >
+                    <div class="tab-content">
+                        <div class="padded-full">
+
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="L0" label="Spots Küche"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="L1" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="L2" label="Indirekt Küche"></habitat-thing-light-bar>
+
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="L3" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="L4" label="Spots Vorhaus"></habitat-thing-light-bar>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="padded-full">
+                                <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" habitat-unique="B0" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+                                <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" habitat-unique="B1" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+                                <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" habitat-unique="B2" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+
+                                <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-ALL" habitat-group="KNX-KITCHEN-BLIND-A KNX-KITCHEN-BLIND-B" label="Küchen"></habitat-thing-blind-bar>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="padded-full">
+                            <h1>Tab 3</h1>
+                            <p>Swipe me!</p>
+                        </div>
+                    </div>
+                </div>
+            </home>
+
+
+        -->
+
+        <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="L0" label="Spots Küche"></habitat-thing-light-bar>
+
+    <div class="app">
+        <div id="pageHeader" class="pageHeader"></div>
+        <div class="pageContainer">
+
+
+
+
+            <div class="swiper-container">
+
+                <div class="swiper-wrapper">
+
+
+
+
+                    <div class="swiper-slide">
+
+                        <div class="page" data-label="Beleuchtung">
+                            <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="L0" label="Spots Küche"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="L1" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="L2" label="Indirekt Küche"></habitat-thing-light-bar>
+
+                            <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="L3" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+
+                            <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
+                            <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="L4" label="Spots Vorhaus"></habitat-thing-light-bar>
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <div class="page" data-label="Beschattung">
+                            <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Beschattung TEST</span></h1>
+                            <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" habitat-unique="B0" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+                            <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" habitat-unique="B1" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+                            <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" habitat-unique="B2" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+
+                            <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-ALL" habitat-group="KNX-KITCHEN-BLIND-A KNX-KITCHEN-BLIND-B" label="Küchen"></habitat-thing-blind-bar>
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="page" data-label="Page 3">
+                            Page 3
+                        </div>
+                    </div>
+                    ...
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+  <script>
+
+/*
+      logger = document.getElementById("log")
+
+      window.onerror = function (msg, url, line) {
+          console.log("Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line);
+          logger.innerHTML += "Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line
+          return true; // same as preventDefault
+      };
+
+      window.addEventListener('error', function (evt) {
+          console.log("Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno);
+          console.log(evt);
+          logger.innerHTML += "Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno
+          evt.preventDefault();
+      });
+
+*/
+  </script>
+
+
+<!-- create app js -->
+<script>
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        on: {
+            init: function()
+            {
+                var el = this.slides[this.realIndex].firstElementChild
+                var headerEl = document.getElementById("pageHeader")
+                headerEl.innerHTML = el.dataset.label
+            }
+        }
+    });
+    swiper.on('slideChange', function(){
+        var el = swiper.slides[swiper.realIndex].firstElementChild
+        var headerEl = document.getElementById("pageHeader")
+        headerEl.innerHTML = el.dataset.label
+    })
+
+</script>
+
+<!--<script type="text/javascript" src="js/phonon.js"></script>-->
+<script type="text/javascript" src="js/habitat-client.js"></script>
+<!--<script type="text/javascript" src="js/app.js"></script>-->
+
+
+</body>
+</html>

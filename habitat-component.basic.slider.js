@@ -65,11 +65,11 @@ import {LitElement, html} from '@polymer/lit-element';
         return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.slider.css"/>
           <div class="slider">
-            <habitat-component-button class="button left" data-direction="-1" @click="${this._onButtonClick}">-</habitat-component-button>
+            <habitat-component-button longPressClickInterval=15 class="button left" data-direction="-1" @clicked="${this._onButtonClick}">-</habitat-component-button>
             <div class="back ${"gradient" + this.gradient}">
               <input name="" type="range" .min=${this.min} .max=${this.max} @pointerdown="${this._stopPropagation}" @pointerup="${this._stopPropagation}" @click="${this._stopPropagation}" @touchstart="${this._stopPropagation}" @mousedown="${this._stopPropagation}" @mousemove="${this._stopPropagation}" @touchmove="${this._stopPropagation}" @change="${this._onRangeChanged}" .value=${this.value}>
             </div>
-            <habitat-component-button class="button right" data-direction="1" @click="${this._onButtonClick}">+</habitat-component-button>
+            <habitat-component-button longPressClickInterval=15 class="button right" data-direction="1" @clicked="${this._onButtonClick}">+</habitat-component-button>
           </div>
         `
       }

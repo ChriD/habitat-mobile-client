@@ -292,31 +292,35 @@ import {LitElement, html} from '@polymer/lit-element';
           element.style.display = 'none'
         else
           element.style.display = 'block'
+        _e.stopPropagation()
       }
 
 
-      /*
-      _render(props) {
-        return html`
-              ${props.shouldRenderThis ? html`<mwc-button label="add" on-click="${_ => this.addFunction()}"></mwc-button>` : ''}
-        `;
+      _onClick(_e)
+      {
+        console.log(_e.type)
+       // _e.preventDefault()
+       // _e.stopPropagation()
       }
-      */
+
+
 
       render() {
         return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.thing.bar.css"/>
           <link type="text/css" rel="stylesheet" href="habitat-component.thing.light.bar.css"/>
-
           <div class="container">
             <div class="flex">
               <div class="left">
-                <habitat-component-switch id="onOff" @change="${this._onSwitchValueChanged}" .checked=${this.habitatState.isOn} ></habitat-component-switch>
-                <label for="switch">${this.label}</label>
+                <habitat-component-switch id="onOff" @changed="${this._onSwitchValueChanged}" .checked=${this.habitatState.isOn} ></habitat-component-switch>
+                <label for="onOff">${this.label}</label>
               </div>
-              <div class="right" @click="${this._onToggleSettings}">
-                <img src="tune.svg" style="margin: auto;">
+              <div class="right">
+                <habitat-component-button @clicked="${this._onToggleSettings}">
+                  <img src="tune.svg" style="margin: auto;">
+                </habitat-component-button>
               </div>
+
             </div>
 
 

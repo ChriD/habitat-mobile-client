@@ -10,11 +10,11 @@
   display: inline-block;
   position: relative;
   text-transform: uppercase;
-  background: #CCC;
+  background: var(--switch-background-off, rgb(204, 204, 204));
   padding: 0.25em 0.5em 0.25em 2em;
   border-radius: 0em;
   min-width: 2em;
-  color: #FFF;
+  color: var(--switch-text-color, rgb(255, 255, 255));
   cursor: pointer;
   transition: background-color 0.15s;
 }
@@ -22,7 +22,7 @@
 .toggle-check-text:after {
   content: ' ';
   display: block;
-  background: #FFF;
+  background: var(--switch-indicator-color, rgb(255, 255, 255));
   width: 1.1em;
   height: 1.1em;
   border-radius: 1em;
@@ -37,7 +37,7 @@
 }
 
 .toggle-check-input:checked ~ .toggle-check-text {
-  background: #8ad869;
+  background: var(--switch-background-on, rgb(0, 235, 193));
   padding-left: 0.5em;
   padding-right: 2em;
 }

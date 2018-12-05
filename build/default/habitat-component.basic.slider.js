@@ -32,7 +32,7 @@ class HabitatComponent_Basic_Slider extends LitElement {
 
 
   _onRangeChanged(_e) {
-    this.value = _e.currentTarget.value;
+    this.value = parseInt(_e.currentTarget.value);
     this.dispatchEvent(new CustomEvent('change', {
       detail: this.value
     }));
@@ -41,10 +41,10 @@ class HabitatComponent_Basic_Slider extends LitElement {
   _onButtonClick(_e) {
     // change value if button was clicked, we start
     if (parseInt(_e.currentTarget.dataset.direction) > 0) {
-      this.value += 5;
+      this.value += 1;
       this.value > this.max ? this.value = this.max : this.value;
     } else {
-      this.value -= 5;
+      this.value -= 1;
       this.value < this.min ? this.value = this.min : this.value;
     }
 
@@ -61,11 +61,11 @@ class HabitatComponent_Basic_Slider extends LitElement {
     return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.slider.css"/>
           <div class="slider">
-            <habitat-component-button class="button left" data-direction="-1" @click="${this._onButtonClick}">-</habitat-component-button>
+            <habitat-component-button longPressClickInterval=15 class="button left" data-direction="-1" @clicked="${this._onButtonClick}">-</habitat-component-button>
             <div class="back ${"gradient" + this.gradient}">
               <input name="" type="range" .min=${this.min} .max=${this.max} @pointerdown="${this._stopPropagation}" @pointerup="${this._stopPropagation}" @click="${this._stopPropagation}" @touchstart="${this._stopPropagation}" @mousedown="${this._stopPropagation}" @mousemove="${this._stopPropagation}" @touchmove="${this._stopPropagation}" @change="${this._onRangeChanged}" .value=${this.value}>
             </div>
-            <habitat-component-button class="button right" data-direction="1" @click="${this._onButtonClick}">+</habitat-component-button>
+            <habitat-component-button longPressClickInterval=15 class="button right" data-direction="1" @clicked="${this._onButtonClick}">+</habitat-component-button>
           </div>
         `;
   }

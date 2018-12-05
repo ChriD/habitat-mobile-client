@@ -1,4 +1,13 @@
 
+:host{
+  display: block;
+}
+
 .colorSliderContainer{
   margin-top: 1em;
+}
+
+
+.right habitat-component-button {
+  height: 2em;
 }

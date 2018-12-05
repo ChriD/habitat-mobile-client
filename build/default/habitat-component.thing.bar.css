@@ -1,8 +1,10 @@
 
 .container{
+  /*
   padding-left: 1em;
   padding-top: 1em;
   padding-right: 1em;
+  */
   /*background-color: lightcoral;*/
 }
 
@@ -23,6 +25,8 @@
 .flex .right{
   display: flex;
   width: 3em;
+  justify-content: center;
+  align-content: center;
  /* background-color: lightgreen;*/
 }
 

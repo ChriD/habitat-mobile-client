@@ -12,7 +12,7 @@ import {LitElement, html} from '@polymer/lit-element';
 
       constructor() {
         super()
-        this.longPressClickInterval = 15
+        this.longPressClickInterval = 0
         this.longPressClickIntervalTmp = 0
         this.longPressClickIntervalCount = 0
         this.longPressIntervalId = null
@@ -25,7 +25,7 @@ import {LitElement, html} from '@polymer/lit-element';
        */
       dispatchClick(_longPressClickIntervalCount)
       {
-        this.dispatchEvent(new CustomEvent('click', { detail: { count: _longPressClickIntervalCount} }));
+        this.dispatchEvent(new CustomEvent('clicked', { detail: { count: _longPressClickIntervalCount} }));
       }
 
 
@@ -51,14 +51,17 @@ import {LitElement, html} from '@polymer/lit-element';
       {
         var self = this
 
+        console.log(_e.type)
+
         // on a new down event we have to clear the exiating interval
         // in fact this should never be the case because the 'onUp' will clear the interval too
-        if(self.intervalId)
-          clearInterval(self.intervalId)
+        if(self.longPressIntervalId)
+          clearInterval(self.longPressIntervalId)
 
         // if the user presses the button and we do have some long click interval defined we
         // are starting a intervall which will trigger the clicked event, so the user can stay on the
         // button and the value will change. It's no science  but it does the job
+
         if(self.longPressClickInterval)
         {
           self.longPressClickIntervalCount = 0
@@ -67,19 +70,17 @@ import {LitElement, html} from '@polymer/lit-element';
         }
 
         /*
-        {
-          self.longPressClickIntervalCount = 0
-          self.intervalId = setInterval(function(){
-            self.longPressClickIntervalCount++
-            self.dispatchClick(self.longPressClickIntervalCount)
-          }, clickDispatchIntervall)
-        }
+        self.longPressClickIntervalCount = 0
+        self.longPressIntervalId = setInterval(function(){
+          self.longPressClickIntervalCount++
+          self.dispatchClick(self.longPressClickIntervalCount)
+        }, self.longPressClickInterval)
         */
 
         // be sure we stop the propagation so that, if we are embedded in swipers, can use the button either way
         // another thing is that we call this method from multiple events (touch, mouseclick, ...) and it should only
         // be called once
-        _e.stopPropagation()
+       // _e.stopPropagation()
         _e.preventDefault()
       }
 
@@ -90,13 +91,15 @@ import {LitElement, html} from '@polymer/lit-element';
        */
       _onUp(_e)
       {
+        console.log(_e.type)
+
         // clear the intervall and dispacth the last click
         if(this.longPressIntervalId)
           clearInterval(this.longPressIntervalId)
-        this.dispatchClick(self.longPressClickIntervalCount)
+        this.dispatchClick(this.longPressClickIntervalCount)
         this.longPressClickIntervalCount = 0
 
-        _e.stopPropagation()
+        //_e.stopPropagation()
         _e.preventDefault()
       }
 
@@ -108,7 +111,9 @@ import {LitElement, html} from '@polymer/lit-element';
        */
       _stopPropagation(_e)
       {
-        _e.stopPropagation()
+        console.log(_e.type)
+        //  _e.stopPropagation()
+        //_e.preventDefault()
       }
 
       /**
@@ -118,7 +123,7 @@ import {LitElement, html} from '@polymer/lit-element';
       render() {
         return html`
           <link type="text/css" rel="stylesheet" href="habitat-component.basic.button.css"/>
-          <button id="button" @pointerdown="${this._onDown}" @pointerup="${this._onUp}" @mousedown="${this._onDown}" @mouseup="${this._onUp}" @touchstart="${this._onDown}" @touchend="${this._onUp}"  @click="${this._stopPropagation}">
+          <button id="button" @pointerdown="${this._onDown}" @pointerup="${this._onUp}">
             <slot></slot>
           </button>
         `
