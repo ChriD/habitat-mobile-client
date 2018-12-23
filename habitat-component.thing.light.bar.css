@@ -11,3 +11,7 @@
 .right habitat-component-button {
   height: 2em;
 }
+
+habitat-component-button{
+  border: 0px;
+}

@@ -1,214 +1,138 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
-    <!-- Your app title -->
-    <title>My App</title>
-
-
-    <script type="module" src="habitat-component.basic.button.js"></script>
-    <script type="module" src="habitat-component.basic.switch.js"></script>
-    <script type="module" src="habitat-component.basic.slider.js"></script>
-    <script type="module" src="habitat-component.thing.light.bar.js"></script>
-    <script type="module" src="habitat-component.thing.blind.bar.js"></script>
-
-    <!-- Path to Framework7 Library CSS -->
-    <link rel="stylesheet" href="css/framework7.css">
-    <link rel="stylesheet" href="css/framework7.style.css">
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-      <!-- App root -->
-      <!-- App root element -->
-      <div id="app">
-
-          <!-- Statusbar overlay -->
-          <div class="statusbar"></div>
-
-          <!-- Your main view, should have "view-main" class -->
-          <div class="view view-main">
-
-            <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="home" class="page">
-
-              <!-- Top Navbar -->
-              <div class="navbar">
-                <div class="navbar-inner">
-                  <div class="title">Habitat</div>
-                </div>
-              </div>
-
-
-              <div class="toolbar tabbar">
-                  <div class="toolbar-inner">
-                    <a href="#tab-1" class="tab-link tab-link-active">Licht</a>
-                    <a href="#tab-2" class="tab-link">Beschattung</a>
-                    <a href="#tab-3" class="tab-link">Szenen</a>
-                    <a href="#tab-4" class="tab-link">Tab 3</a>
-                  </div>
-                </div>
-              <div class="tabs-swipeable-wrap">
-                  <div class="tabs">
-                    <div id="tab-1" class="page-content tab tab-active">
-
-                      <!--
-                          <div class="list">
-                            <ul>
-
-                              <li class="accordion-item"><a href="#" class="item-content item-link">
-                                  <div class="item-inner">
-                                    <div class="item-title">Küche</div>
-                                  </div></a>
-                                <div class="accordion-item-content">
-                                  <div class="block block-strong">
-                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="LK0" label="Spots Küche"></habitat-thing-light-bar>
-                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="LK1" label="Spots Kücheninsel"></habitat-thing-light-bar>
-                                      <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="LK2" label="Indirekt Küche"></habitat-thing-light-bar>
-                                  </div>
-                                </div>
-                              </li>
-
-                              <li class="accordion-item"><a href="#" class="item-content item-link">
-                                  <div class="item-inner">
-                                    <div class="item-title">Vorraum</div>
-                                  </div></a>
-                                <div class="accordion-item-content">
-                                  <div class="block block-strong">
-                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="LC0" label="Spots Vorhaus"></habitat-thing-light-bar>
-                                      <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-STRIPE-WALL" habitat-unique="LK2" label="Indirekt Vorhaus"></habitat-thing-light-bar>
-                                  </div>
-                                </div>
-                              </li>
-
-                              <li class="accordion-item"><a href="#" class="item-content item-link">
-                                <div class="item-inner">
-                                  <div class="item-title">Schlafzimmer</div>
-                                </div></a>
-                                <div class="accordion-item-content">
-                                  <div class="block block-strong">
-                                    <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="LS0" label="Spots Schlafzimmer"></habitat-thing-light-bar>
-                                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-STRIPE-WALL" habitat-unique="LS2" label="Indirekt Schlafzimmer"></habitat-thing-light-bar>
-                                </div>
-                                </div>
-                              </li>
-
-
-                              <li class="accordion-item"><a href="#" class="item-content item-link">
-                                  <div class="item-inner">
-                                    <div class="item-title">Konsole</div>
-                                  </div></a>
-                                <div class="accordion-item-content">
-                                  <div class="block" id="error-log">
-                                  </div>
-                                </div>
-                              </li>
-
-                            </ul>
-                          </div>
-
-                        -->
-
-
-                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Küche</div>
-                          <div class="block block-strong">
-                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="LK1" label="Spots Küche"></habitat-thing-light-bar>
-                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="LK2" label="Spots Kücheninsel"></habitat-thing-light-bar>
-                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="LK3" label="Indirekt Küche"></habitat-thing-light-bar>
-                          </div>
-
-                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Vorhaus</div>
-                          <div class="block block-strong">
-                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" class="barPaddingBottom"habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="LC1" label="Spots Vorhaus"></habitat-thing-light-bar>
-                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-CORRIDOR-STRIPE-WALL" habitat-unique="LC2" label="Indirekt Vorhaus"></habitat-thing-light-bar>
-                          </div>
-
-                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Schlafzimmer</div>
-                          <div class="block block-strong">
-                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="LS1" label="Spots Schlafzimmer"></habitat-thing-light-bar>
-                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-SLEEP-STRIPE-WALL" habitat-unique="LS2" label="Indirekt Schlafzimmer"></habitat-thing-light-bar>
-                          </div>
-
-
-                          <div id="error-log"></div>
 
 
 
-                          <script>
+<!doctype html>
 
-                          console.log = (function (old_function, div_log) {
-                          return function (text) {
-                              old_function(text);
-                              div_log.innerHTML  += text + "<br>";
-                          };
-                          } (console.log.bind(console), document.getElementById("error-log")));
-                          </script>
+<html lang="de">
+<head>
+  <title>Habitat Mobile</title>
 
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Mobile client for habitat">
+  <meta name="author" content="ChriD">
 
-                    </div>
+  <link type="text/css" rel="stylesheet" href="css/uikit.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/app.css" />
 
-                    <div id="tab-2" class="page-content tab">
+  <script type="text/javascript" src="js/uikit.min.js"></script>
+  <script type="text/javascript" src="js/uikit-icons.min.js"></script>
 
-                        <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Küche</div>
-                        <div class="block block-strong">
-                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
-                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
-                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
-                        </div>
+  <script type="module" src="habitat-component.basic.button.js"></script>
+  <script type="module" src="habitat-component.basic.switch.js"></script>
+  <script type="module" src="habitat-component.basic.slider.js"></script>
+  <script type="module" src="habitat-component.thing.light.bar.js"></script>
+  <script type="module" src="habitat-component.thing.blind.bar.js"></script>
+  <script type="module" src="habitat-component.thing.plug.bar.js"></script>
 
-                      </div>
-                    </div>
+</head>
 
-                    <div id="tab-3" class="page-content tab">
-                      <div class="block">
-                        <p>Tab 3 content</p>
-                        ...
-                      </div>
-                    </div>
+<body>
 
-                    <div id="tab-4" class="page-content tab">
-                      <div class="block">
-                        <p>Tab 3 content</p>
-                        ...
-                      </div>
-                    </div>
-
-                    <div id="tab-5" class="page-content tab">
-                      <div class="block">
-                        <p>Tab 3 content</p>
-                        ...
-                      </div>
-                    </div>
-
-                    <div id="tab-6" class="page-content tab">
-                      <div class="block">
-                        <p>Tab 3 content</p>
-                        ...
-                      </div>
-                    </div>
-
-
-                  </div>
-                </div>
-
-
-
-
-
-
-            </div>
-          </div>
+    <!-- The navbar should stay on top?! or iuse a sideoiut navbar? -->
+    <!-- slide left and right should change screens)-->
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav" uk-switcher="connect: #test">
+                <li class="uk-active"><a href="">Licht</a></li>
+                <li class="uk-parent"><a href="">Beschattung</a></li>
+                <li class="uk-parent"><a href="">Szenen</a></li>
+                <li><a href=""></a></li>
+            </ul>
         </div>
+    </nav>
 
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.js"></script>
-    <script type="text/javascript" src="js/habitat-client.js"></script>
+    <ul id="test" class="uk-switcher uk-margin">
+            <li>
+                <!-- -->
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Küche</span></h1>
+                <div class="block">
+                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" class="barPaddingBottom" label="Spots Küche"></habitat-thing-light-bar>
+                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" class="barPaddingBottom" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                    <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" label="Indirekt Küche"></habitat-thing-light-bar>
+                </div>
+                <!-- -->
 
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/app.js"></script>
-  </body>
+                <!-- -->
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Schlafzimmer</span></h1>
+                <div class="block">
+                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+                </div>
+                <!--
+                <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE-BED" label="Indirekt Bett"></habitat-thing-light-bar>
+                <habitat-thing-light-bar habitat-id="ARTNET-SLEEP-STRIPE" label="Indirekt"></habitat-thing-light-bar>
+                -->
+                <!-- -->
+
+                <!-- -->
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Vorhaus</span></h1>
+                <div class="block">
+                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" label="Spots Vorhaus"></habitat-thing-light-bar>
+                </div>
+                <!-- -->
+
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Sonstiges</span></h1>
+                <div class="block">
+                    <habitat-thing-plug-bar habitat-id="KNX-CORRIDOR-PLUG-BALKONYDOOR" label="Christbaum"></habitat-thing-plug-bar>
+                </div>
+            </li>
+
+            <li>
+                <h1 class="uk-heading-line uk-text-large" style="margin-right: 0.5em; margin-left:0.5em;"><span>Beschattung</span></h1>
+                <div class="block">
+                    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" class="barPaddingBottom" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+                    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" class="barPaddingBottom" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+                    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" class="barPaddingBottom" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+                    <!-- ??? gruppensteuerung ??? -->
+                    <!-- aber was ist mit rückmeldungen von anderen clients (Einzeländrung?) -->
+                    <habitat-thing-blind-bar blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-ALL" habitat-group="KNX-KITCHEN-BLIND-A KNX-KITCHEN-BLIND-B" label="Küchen"></habitat-thing-blind-bar>
+                </div>
+          </li>
+            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+        </ul>
+
+
+  <div id="log">
+
+  </div>
+
+
+
+
+
+  <script>
+
+      logger = document.getElementById("log")
+
+      window.onerror = function (msg, url, line) {
+          console.log("Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line);
+          logger.innerHTML += "Caught[via window.onerror]: '" + msg + "' from " + url + ":" + line
+          return true; // same as preventDefault
+      };
+
+      window.addEventListener('error', function (evt) {
+          console.log("Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno);
+          console.log(evt);
+          logger.innerHTML += "Caught[via 'error' event]:  '" + evt.message + "' from " + evt.filename + ":" + evt.lineno
+          evt.preventDefault();
+      });
+
+
+  </script>
+
+  <!-- Initialize Swiper -->
+  <!--
+  <script>
+        var swiper = new Swiper('.swiper-container', {
+          pagination: {
+            el: '.swiper-pagination',
+          },
+        });
+      </script>
+      -->
+
+<script type="text/javascript" src="js/habitat-client.js"></script>
+
+</body>
 </html>

@@ -1,4 +1,8 @@
 
+:host{
+  display: block;
+}
+
 .column{
   display: flex;
   flex-flow: column nowrap;

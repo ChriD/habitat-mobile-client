@@ -35,7 +35,8 @@ import {LitElement, html} from '@polymer/lit-element';
         var element =  this.shadowRoot.getElementById("switchCB")
         element.checked = this.checked
         this.dispatchEvent(new CustomEvent('changed', { detail: this.checked }))
-
+        _e.stopPropagation()
+        _e.preventDefault()
       }
 
 

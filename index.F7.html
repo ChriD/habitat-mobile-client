@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>My App</title>
+
+
+    <script type="module" src="habitat-component.basic.button.js"></script>
+    <script type="module" src="habitat-component.basic.switch.js"></script>
+    <script type="module" src="habitat-component.basic.slider.js"></script>
+    <script type="module" src="habitat-component.thing.light.bar.js"></script>
+    <script type="module" src="habitat-component.thing.blind.bar.js"></script>
+
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="css/framework7.css">
+    <link rel="stylesheet" href="css/framework7.style.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+      <!-- App root -->
+      <!-- App root element -->
+      <div id="app">
+
+          <!-- Statusbar overlay -->
+          <div class="statusbar"></div>
+
+          <!-- Panel-->
+          <div class="panel panel-left panel-reveal">
+            <div class="block">
+              <p>Left Panel content here</p>
+              <p><a class="panel-close" href="#">Close me</a></p>
+            </div>
+          </div>
+
+          <!-- Your main view, should have "view-main" class -->
+          <div class="view view-main">
+
+            <!-- Initial Page, "data-name" contains page name -->
+            <div data-name="home" class="page">
+
+              <!-- Top Navbar -->
+              <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                      <a href="#" class="link icon-only panel-open" data-panel="left">
+                        <i class="icon material-icons md-only">menu</i>
+                      </a>
+                    </div>
+                    <div class="title sliding">Habitat</div>
+                    <div class="right">
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="toolbar tabbar">
+                  <div class="toolbar-inner">
+                    <a href="#tab-1" class="tab-link tab-link-active">Dash</a>
+                    <a href="#tab-2" class="tab-link">Szenen</a>
+                    <a href="#tab-3" class="tab-link">Räume</a>
+                  </div>
+                </div>
+              <div class="tabs-swipeable-wrap">
+                  <div class="tabs">
+                    <div id="tab-1" class="page-content tab tab-active">
+
+                      <!--
+                          <div class="list">
+                            <ul>
+
+                              <li class="accordion-item"><a href="#" class="item-content item-link">
+                                  <div class="item-inner">
+                                    <div class="item-title">Küche</div>
+                                  </div></a>
+                                <div class="accordion-item-content">
+                                  <div class="block block-strong">
+                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="LK0" label="Spots Küche"></habitat-thing-light-bar>
+                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="LK1" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                                      <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="LK2" label="Indirekt Küche"></habitat-thing-light-bar>
+                                  </div>
+                                </div>
+                              </li>
+
+                              <li class="accordion-item"><a href="#" class="item-content item-link">
+                                  <div class="item-inner">
+                                    <div class="item-title">Vorraum</div>
+                                  </div></a>
+                                <div class="accordion-item-content">
+                                  <div class="block block-strong">
+                                      <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="LC0" label="Spots Vorhaus"></habitat-thing-light-bar>
+                                      <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-CORRIDOR-STRIPE-WALL" habitat-unique="LK2" label="Indirekt Vorhaus"></habitat-thing-light-bar>
+                                  </div>
+                                </div>
+                              </li>
+
+                              <li class="accordion-item"><a href="#" class="item-content item-link">
+                                <div class="item-inner">
+                                  <div class="item-title">Schlafzimmer</div>
+                                </div></a>
+                                <div class="accordion-item-content">
+                                  <div class="block block-strong">
+                                    <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="LS0" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+                                    <habitat-thing-light-bar lightType="TW" habitat-id="ARTNET-SLEEP-STRIPE-WALL" habitat-unique="LS2" label="Indirekt Schlafzimmer"></habitat-thing-light-bar>
+                                </div>
+                                </div>
+                              </li>
+
+
+                              <li class="accordion-item"><a href="#" class="item-content item-link">
+                                  <div class="item-inner">
+                                    <div class="item-title">Konsole</div>
+                                  </div></a>
+                                <div class="accordion-item-content">
+                                  <div class="block" id="error-log">
+                                  </div>
+                                </div>
+                              </li>
+
+                            </ul>
+                          </div>
+
+                        -->
+
+
+                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Küche</div>
+                          <div class="block block-strong">
+                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT" habitat-unique="LK1" label="Spots Küche"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-KITCHEN-SPOT-ISLAND" habitat-unique="LK2" label="Spots Kücheninsel"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-KITCHEN-STRIPE-WALL" habitat-unique="LK3" label="Indirekt Küche"></habitat-thing-light-bar>
+                          </div>
+
+                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Vorhaus</div>
+                          <div class="block block-strong">
+                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" class="barPaddingBottom"habitat-id="ARTNET-CORRIDOR-SPOT" habitat-unique="LC1" label="Spots Vorhaus"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-CORRIDOR-STRIPE-WALL" habitat-unique="LC2" label="Indirekt Vorhaus"></habitat-thing-light-bar>
+                          </div>
+
+                          <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Schlafzimmer</div>
+                          <div class="block block-strong">
+                            <habitat-thing-light-bar class="barPaddingBottom" lightType="TW" habitat-id="ARTNET-SLEEP-SPOT" habitat-unique="LS1" label="Spots Schlafzimmer"></habitat-thing-light-bar>
+                            <habitat-thing-light-bar lightType="RGBW" habitat-id="ARTNET-SLEEP-STRIPE-WALL" habitat-unique="LS2" label="Indirekt Schlafzimmer"></habitat-thing-light-bar>
+                          </div>
+
+
+                          <div id="error-log"></div>
+
+
+
+                          <script>
+
+                          console.log = (function (old_function, div_log) {
+                          return function (text) {
+                              old_function(text);
+                              div_log.innerHTML  += text + "<br>";
+                          };
+                          } (console.log.bind(console), document.getElementById("error-log")));
+                          </script>
+
+
+                    </div>
+
+                    <div id="tab-2" class="page-content tab">
+
+                        <div class="block-title" style="margin-right: 0.5em; margin-left:0.5em;">Küche</div>
+                        <div class="block block-strong">
+                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-A" label="Raffstore Küche Arbeit"></habitat-thing-blind-bar>
+                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-B" label="Raffstore Küche Tisch"></habitat-thing-blind-bar>
+                          <habitat-thing-blind-bar class="barPaddingBottom" blindType="EXTERNLBLIND" habitat-id="KNX-KITCHEN-BLIND-C" label="Raffstore Küche Hebeschiebe"></habitat-thing-blind-bar>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div id="tab-3" class="page-content tab">
+                      <div class="block">
+                        <p>Tab 3 content</p>
+                        ...
+                      </div>
+                    </div>
+
+                    <div id="tab-4" class="page-content tab">
+                      <div class="block">
+                        <p>Tab 3 content</p>
+                        ...
+                      </div>
+                    </div>
+
+                    <div id="tab-5" class="page-content tab">
+                      <div class="block">
+                        <p>Tab 3 content</p>
+                        ...
+                      </div>
+                    </div>
+
+                    <div id="tab-6" class="page-content tab">
+                      <div class="block">
+                        <p>Tab 3 content</p>
+                        ...
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.js"></script>
+    <script type="text/javascript" src="js/habitat-client.js"></script>
+
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>

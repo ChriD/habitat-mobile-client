@@ -1,4 +1,5 @@
 :host{
+  border: 1px solid lightgray;
 }
 
 button {
@@ -8,10 +9,10 @@ button {
 	cursor: pointer;
   outline: inherit;
   user-select: none;
+  border: 0px;
 
   line-height: 2.0em;
   height: 100%;
   width: 100%;
-  border: 1px solid lightgray;
   background: none;
 }
