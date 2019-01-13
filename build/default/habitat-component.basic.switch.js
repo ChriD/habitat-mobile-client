@@ -34,6 +34,10 @@ class HabitatComponent_Basic_Switch extends LitElement {
     this.dispatchEvent(new CustomEvent('changed', {
       detail: this.checked
     }));
+
+    _e.stopPropagation();
+
+    _e.preventDefault();
   } // https://materialdesignicons.com/
   // https://jasonette.com/
   // uses BAD workaround!!!!!

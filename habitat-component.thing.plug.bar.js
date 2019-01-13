@@ -45,7 +45,7 @@ import {LitElement, html} from '@polymer/lit-element';
 
       stateUpdatedFromExt()
       {
-        super.stateUpdatedFromExt()
+        //super.stateUpdatedFromExt()
         //
       }
 

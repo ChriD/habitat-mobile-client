@@ -26,7 +26,7 @@ class HabitatComponent_Blind_Bar extends LitElement {
     // ROLLERBLIND    ... Roller Blind
     // EXTERNALBLIND  ... External Blind
 
-    this.lightType = "ROLLERBLIND";
+    this.blindType = "ROLLERBLIND";
   }
   /**
    * is called when the toggle settings button is clicked
@@ -89,6 +89,7 @@ class HabitatComponent_Blind_Bar extends LitElement {
                 <div class="column button" @click="${this._onButtonClick}" data-context="blindPosition" data-value="100">100%</div>
               </div>
 
+              ${this.blindType == "EXTERNALBLIND" ? html`
               <div class="flex buttons">
                 <div class="column info">°</div>
                 <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="0">0%</div>
@@ -96,8 +97,11 @@ class HabitatComponent_Blind_Bar extends LitElement {
                 <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="50">50%</div>
                 <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="75">75%</div>
                 <div class="column button" @click="${this._onButtonClick}" data-context="blindDegree" data-value="100">100%</div>
-              </div>
+              </div>` : ''}
+
             </div>
+
+
 
           </div>
         `;
